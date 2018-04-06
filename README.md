@@ -15,6 +15,3 @@ should happen automatically from the `.ruby-version` file)
 
 ### Launch the app
 1. Run `bundle exec foreman start` to launch the app.
-
-###
-###
