@@ -23,11 +23,11 @@ get '/' do
                .max
                .to_i + 1
   
-  # resized_image = ImageProcessing::Vips
-  #   .source(File.open("public/theater.jpg"))
-  #   .resize_to_limit(512, 512)
-  #   .saver(strip: true)
-  #   .call(destination: "public/theater#{number}.jpg")
+  resized_image = ImageProcessing::Vips
+    .source(File.open("public/theater.jpg"))
+    .resize_to_limit(512, 512)
+    .saver(strip: true)
+    .call(destination: "public/theater#{number}.jpg")
 
   haml :index, :locals => {original_image: original_image, resized_image: img("theater#{number}.jpg")}
 end
