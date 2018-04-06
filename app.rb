@@ -14,11 +14,20 @@ end
 get '/' do
   original_image = img "theater.jpg"
   
+  # Increment theater images on every resize request
+  number = Dir.glob("public/*.jpg")
+               .each {|file| file.gsub!("public/theater",'')
+               .gsub!(".jpg",'')}
+               .compact
+               .reject(&''.method(:==))
+               .max
+               .to_i + 1
+  
   # resized_image = ImageProcessing::Vips
   #   .source(File.open("public/theater.jpg"))
   #   .resize_to_limit(512, 512)
   #   .saver(strip: true)
-  #   .call(destination: "public/theater2.jpg")
+  #   .call(destination: "public/theater#{number}.jpg")
 
-  haml :index, :locals => {original_image: original_image, resized_image: img("theater2.jpg")}
+  haml :index, :locals => {original_image: original_image, resized_image: img("theater#{number}.jpg")}
 end
