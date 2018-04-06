@@ -6,7 +6,3 @@ gem 'haml'
 gem 'image_processing'
 gem 'sinatra'
 gem 'shotgun'
-
-group :development do
-  gem 'thin'
-end
