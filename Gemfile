@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.4.0'
 
+gem 'bundler', '1.16.0'
 gem 'foreman'
 gem 'haml'
 gem 'image_processing'
